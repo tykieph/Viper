@@ -1,7 +1,5 @@
 #include "vpch.h"
-
 #include <Viper.h>
-
 
 class Game : public Viper::Application
 {
@@ -13,7 +11,7 @@ public:
 	{
 		while (true)
 		{
-			std::cout << "testing\n";
+			//std::cout << "testing\n";
 		}
 	}
 };

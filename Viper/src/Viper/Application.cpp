@@ -1,5 +1,4 @@
 #include "vpch.h"
-
 #include "Application.h"
 
 namespace Viper

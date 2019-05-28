@@ -29,7 +29,8 @@ project "Viper"
 
 	includedirs
 	{
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include"
 	}
 
 	filter "system:windows"
@@ -78,7 +79,8 @@ project "Game"
 
 	includedirs
 	{
-		"Viper/src"
+		"Viper/src",
+		"Viper/vendor/spdlog/include"
 	}
 
 	links

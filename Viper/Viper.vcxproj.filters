@@ -16,10 +16,16 @@
     <ClInclude Include="src\Viper\EntryPoint.h">
       <Filter>Viper</Filter>
     </ClInclude>
+    <ClInclude Include="src\Viper\Log.h">
+      <Filter>Viper</Filter>
+    </ClInclude>
     <ClInclude Include="src\vpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Viper\Application.cpp">
+      <Filter>Viper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Viper\Log.cpp">
       <Filter>Viper</Filter>
     </ClCompile>
     <ClCompile Include="src\vpch.cpp" />
