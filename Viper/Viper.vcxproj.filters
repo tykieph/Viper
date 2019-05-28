@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Viper">
+      <UniqueIdentifier>{2BB94E0E-97CD-76BF-604F-1A1FCC2273F0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Viper.h" />
+    <ClInclude Include="src\Viper\Application.h">
+      <Filter>Viper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Viper\Core.h">
+      <Filter>Viper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Viper\EntryPoint.h">
+      <Filter>Viper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vpch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Viper\Application.cpp">
+      <Filter>Viper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vpch.cpp" />
+  </ItemGroup>
+</Project>
