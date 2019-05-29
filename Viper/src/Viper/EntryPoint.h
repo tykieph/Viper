@@ -8,9 +8,6 @@
 	int main(int argc, char **argv)
 	{
 		Viper::Log::init();
-		
-		V_CORE_INFO("Welcome abroad!");
-		V_WARN("It's gonna be an epic {0}...", "journey");
 
 
 		Viper::Application *app = Viper::createApplication(); 

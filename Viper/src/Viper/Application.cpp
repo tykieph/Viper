@@ -6,6 +6,7 @@ namespace Viper
 
 	Application::Application()
 	{
+		this->window = std::unique_ptr<Window>(Window::create());
 	}
 
 
@@ -15,9 +16,10 @@ namespace Viper
 
 	void Application::run()
 	{
-		while (true)
+
+		while (this->running)
 		{
-			std::cout << "testingg\n";
+			window->onUpdate();
 		}
 	}
 

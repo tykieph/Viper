@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Window.h"
 
 namespace Viper
 {
@@ -11,7 +12,11 @@ namespace Viper
 		Application();
 		virtual ~Application();
 
-		virtual void run();
+		void run();
+
+	private:
+		std::unique_ptr<Window> window;
+		bool running = true;
 	};
 
 	// to be defined in CLIENT

@@ -11,6 +11,8 @@
 #include <string>
 #include <set>
 
+#include "Viper/Log.h"
+
 #ifdef V_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif 
