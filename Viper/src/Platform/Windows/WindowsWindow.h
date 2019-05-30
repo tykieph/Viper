@@ -2,6 +2,10 @@
 
 #include "Viper/Window.h"
 
+#include "Viper/Events/ApplicationEvent.h"
+#include "Viper/Events/MouseEvent.h"
+#include "Viper/Events/KeyEvent.h"
+
 #include <GLFW/glfw3.h>
 
 namespace Viper
@@ -15,8 +19,10 @@ namespace Viper
 
 		void onUpdate() override;
 
-		inline unsigned int getWidth() const override { return data.width; }
-		inline unsigned int getHeight() const override { return data.height; }
+		inline uint16_t getWidth() const override { return data.width; }
+		inline uint16_t getHeight() const override { return data.height; }
+
+		inline void setEventCallback(const eventCallbackFunc &callback) override { this->data.eventCallback = callback; }
 
 	private:
 		virtual void init(const WindowProperties &properties);
@@ -28,8 +34,10 @@ namespace Viper
 		struct WindowData
 		{
 			std::string title;
-			unsigned int width;
-			unsigned int height;
+			uint16_t width;
+			uint16_t height;
+
+			eventCallbackFunc eventCallback;
 		};
 
 		WindowData data;

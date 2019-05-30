@@ -9,6 +9,7 @@
 	{
 		Viper::Log::init();
 
+		V_CORE_INFO("{0}", sizeof(int));
 
 		Viper::Application *app = Viper::createApplication(); 
 		app->run();

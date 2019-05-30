@@ -32,6 +32,10 @@
       <Filter>Viper</Filter>
     </ClInclude>
     <ClInclude Include="src\vpch.h" />
+    <ClInclude Include="src\Viper\Events\Event.h" />
+    <ClInclude Include="src\Viper\Events\MouseEvent.h" />
+    <ClInclude Include="src\Viper\Events\KeyEvent.h" />
+    <ClInclude Include="src\Viper\Events\ApplicationEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
