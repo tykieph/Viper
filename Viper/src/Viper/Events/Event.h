@@ -47,7 +47,7 @@ namespace Viper
 			return getCategoryFlags() & category;
 		}
 
-	protected:
+	public:
 		bool handled = false;	
 	};
 

@@ -1,11 +1,12 @@
 #pragma once
 
-#include "Core.h"
-#include "Window.h"
-#include "Input.h"
+#include "Viper/Core.h"
+#include "Viper/Window.h"
+#include "Viper/Input.h"
+#include "Viper/LayerStack.h"
 
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Viper/Events/Event.h"
+#include "Viper/Events/ApplicationEvent.h"
 
 namespace Viper
 {
@@ -18,7 +19,10 @@ namespace Viper
 
 		void run();
 
-		virtual void onEvent(Event &e);
+		void onEvent(Event &e);
+
+		void pushLayer(Layer *layer);
+		void pushOverlay(Layer *overlay);
 
 		inline Window &getWindow() const { return *this->window; }
 		inline static Application &get() { return *instance; }
@@ -29,6 +33,7 @@ namespace Viper
 	private:
 		std::unique_ptr<Window> window;
 		bool running = true;
+		LayerStack layers;
 
 		static Application *instance;
 	};

@@ -18,8 +18,10 @@ include "Viper/vendor/GLFW"
 
 project "Viper"
 	location "Viper"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"	
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intdir/" .. outputdir .. "/%{prj.name}")
@@ -52,8 +54,6 @@ project "Viper"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -62,22 +62,17 @@ project "Viper"
 			"V_BUILD_DLL"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Game")
-		} 
-
 	filter "configurations:Debug"
 		defines "V_DEBUG"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "V_RELEASE"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "V_DIST"
-		optimize "On"
+		optimize "on"
 
 
 
@@ -85,6 +80,8 @@ project "Game"
 	location "Game"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intdir/" .. outputdir .. "/%{prj.name}")
@@ -107,8 +104,6 @@ project "Game"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -118,12 +113,12 @@ project "Game"
 
 	filter "configurations:Debug"
 		defines "V_DEBUG"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "V_RELEASE"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "V_DIST"
-		optimize "On"
+		optimize "on"

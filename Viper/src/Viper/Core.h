@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef V_PLATFORM_WINDOWS
-	#ifdef V_BUILD_DLL
-		#define VIPER_API __declspec(dllexport)
-	#else 
-		#define VIPER_API __declspec(dllimport)
+	#ifdef V_DYNAMIC_LINK
+		#ifdef V_BUILD_DLL
+			#define VIPER_API __declspec(dllexport)
+		#else 
+			#define VIPER_API __declspec(dllimport)
+		#endif
+	#else
+		#define VIPER_API
 	#endif
 #else
 	#error Viper supports only Windows

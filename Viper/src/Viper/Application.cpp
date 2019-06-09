@@ -26,16 +26,36 @@ namespace Viper
 	{
 		while (this->running)
 		{
+			for (Layer *layer : this->layers)
+				layer->onUpdate();
+
 			window->onUpdate();
 		}
 	}
 
 	void Application::onEvent(Event &e)
 	{
-		//EventDispatcher dispatcher(e);
+		EventDispatcher dispatcher(e);
 
-		//dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::onWindowClose));
-		//V_CORE_INFO("{0}", e);
+		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::onWindowClose));
+		
+		for (auto it = this->layers.end(); it != this->layers.begin(); )
+		{
+			(*--it)->onEvent(e);
+			if (e.handled)
+				break;
+		}
+
+	}
+
+	void Application::pushLayer(Layer *layer)
+	{
+		this->layers.pushLayer(layer);
+	}
+
+	void Application::pushOverlay(Layer *overlay)
+	{
+		this->layers.pushOverlay(overlay);
 	}
 
 	bool Application::onWindowClose(WindowCloseEvent &e)

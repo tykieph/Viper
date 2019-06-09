@@ -4,6 +4,7 @@
 // used only by Game
 
 #include "Viper/Application.h"
+#include "Viper/Layer.h"
 #include "Viper/Log.h"
 
 #include "Viper/Input.h"

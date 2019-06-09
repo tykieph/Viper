@@ -1,17 +1,32 @@
 #include "vpch.h"
 #include <Viper.h>
 
-class Game : public Viper::Application
+class GameLayer : public Viper::Layer
 {
 public:
-	Game(){}
-	~Game(){}
+	GameLayer()
+		: Layer("Game layer")
+	{
+	}
 
-	void onEvent(Viper::Event& event) override
+	void onEvent(Viper::Event &e) override
 	{
 		if (Viper::Input::isKeyPressed(V_KEY_TAB))
 			V_INFO("TAB IS PRESSED!");
 	}
+
+};
+
+class Game : public Viper::Application
+{
+public:
+	Game()
+	{
+		pushLayer(new GameLayer());
+	}
+
+	~Game(){}
+
 
 };
 
