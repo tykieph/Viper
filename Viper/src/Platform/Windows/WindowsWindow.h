@@ -24,6 +24,8 @@ namespace Viper
 
 		inline void setEventCallback(const eventCallbackFunc &callback) override { this->data.eventCallback = callback; }
 
+		inline void *getNativeWindow() const override { return this->window; }
+
 	private:
 		virtual void init(const WindowProperties &properties);
 		virtual void shutdown();

@@ -7,13 +7,12 @@ public:
 	Game(){}
 	~Game(){}
 
-	void run()
+	void onEvent(Viper::Event& event) override
 	{
-		while (true)
-		{
-			//std::cout << "testing\n";
-		}
+		if (Viper::Input::isKeyPressed(V_KEY_TAB))
+			V_INFO("TAB IS PRESSED!");
 	}
+
 };
 
 Viper::Application *Viper::createApplication()

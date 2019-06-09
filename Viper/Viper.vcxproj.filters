@@ -36,6 +36,10 @@
     <ClInclude Include="src\Viper\Events\MouseEvent.h" />
     <ClInclude Include="src\Viper\Events\KeyEvent.h" />
     <ClInclude Include="src\Viper\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Viper\Input.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Viper\KeyCodes.h" />
+    <ClInclude Include="src\Viper\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -48,5 +52,6 @@
       <Filter>Viper</Filter>
     </ClCompile>
     <ClCompile Include="src\vpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

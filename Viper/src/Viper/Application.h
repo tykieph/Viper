@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Window.h"
+#include "Input.h"
 
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
@@ -17,7 +18,10 @@ namespace Viper
 
 		void run();
 
-		void onEvent(Event &e);
+		virtual void onEvent(Event &e);
+
+		inline Window &getWindow() const { return *this->window; }
+		inline static Application &get() { return *instance; }
 
 	private:
 		bool onWindowClose(WindowCloseEvent &e);
@@ -25,6 +29,8 @@ namespace Viper
 	private:
 		std::unique_ptr<Window> window;
 		bool running = true;
+
+		static Application *instance;
 	};
 
 	// to be defined in CLIENT

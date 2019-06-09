@@ -32,6 +32,8 @@ namespace Viper
 
 		virtual void setEventCallback(const eventCallbackFunc &callback) = 0;
 
+		virtual void *getNativeWindow() const = 0;
+
 		// this function has to be created per platform
 		static Window *create(const WindowProperties &properties = WindowProperties());
 	};
