@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\Vulkan">
+      <UniqueIdentifier>{6AE1DE2D-D66C-4CF2-DF7D-CFE64B88A8F2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -13,8 +16,20 @@
     <Filter Include="Viper\Events">
       <UniqueIdentifier>{AF06E937-9B69-78DC-44EF-B0923031445F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Viper\Renderer">
+      <UniqueIdentifier>{317D40CD-1D4B-34D3-06DF-A4F9F24B1038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Viper\Renderer\Shaders">
+      <UniqueIdentifier>{0A43236B-F63C-4CBD-DFA9-E2CDCB42B229}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Vulkan\VulkanContext.h">
+      <Filter>Platform\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Vulkan\VulkanDebugger.h">
+      <Filter>Platform\Vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -61,12 +76,30 @@
     <ClInclude Include="src\Viper\MouseButtonCodes.h">
       <Filter>Viper</Filter>
     </ClInclude>
+    <ClInclude Include="src\Viper\Renderer\Buffer.h">
+      <Filter>Viper\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Viper\Renderer\GraphicsContext.h">
+      <Filter>Viper\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Viper\Renderer\Renderer.h">
+      <Filter>Viper\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Viper\Renderer\Shaders\Shader.h">
+      <Filter>Viper\Renderer\Shaders</Filter>
+    </ClInclude>
     <ClInclude Include="src\Viper\Window.h">
       <Filter>Viper</Filter>
     </ClInclude>
     <ClInclude Include="src\vpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Vulkan\VulkanContext.cpp">
+      <Filter>Platform\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Vulkan\VulkanDebugger.cpp">
+      <Filter>Platform\Vulkan</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
@@ -84,6 +117,12 @@
     </ClCompile>
     <ClCompile Include="src\Viper\Log.cpp">
       <Filter>Viper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Viper\Renderer\Buffer.cpp">
+      <Filter>Viper\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Viper\Renderer\Shaders\Shader.cpp">
+      <Filter>Viper\Renderer\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="src\vpch.cpp" />
   </ItemGroup>

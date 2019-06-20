@@ -39,13 +39,15 @@ project "Viper"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/glm",
 		"%{IncludeDir.GLFW}",
 		"C:/VulkanSDK/1.1.106.0/Include"
 	}
 
 	links
 	{
-		"GLFW"
+		"GLFW",
+		"vulkan-1"
 	}
 
 	libdirs
@@ -59,7 +61,8 @@ project "Viper"
 		defines
 		{
 			"V_PLATFORM_WINDOWS",
-			"V_BUILD_DLL"
+			"V_BUILD_DLL",
+			"GLFW_INCLUDE_VULKAN"
 		}
 
 	filter "configurations:Debug"

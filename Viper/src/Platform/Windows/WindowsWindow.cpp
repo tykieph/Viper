@@ -1,6 +1,12 @@
 #include "vpch.h"
 #include "WindowsWindow.h"
 
+#include "Viper/Events/ApplicationEvent.h"
+#include "Viper/Events/MouseEvent.h"
+#include "Viper/Events/KeyEvent.h"
+
+#include "Platform/Vulkan/VulkanContext.h"
+
 namespace Viper
 {
 
@@ -23,8 +29,7 @@ namespace Viper
 
 	void WindowsWindow::onUpdate()
 	{
-		glfwPollEvents();
-		glfwSwapBuffers(this->window);
+		this->context->swapBuffers();
 	}
 
 	void WindowsWindow::init(const WindowProperties &properties)
@@ -32,6 +37,7 @@ namespace Viper
 		this->data.title = properties.title;
 		this->data.width = properties.width;
 		this->data.height = properties.height;
+		this->data.framebufferResized = false;
 
 		V_CORE_INFO("Creating window {0} ({1}x{2})", this->data.title, this->data.width, this->data.height);
 
@@ -43,20 +49,30 @@ namespace Viper
 			// Set GLFW error callback
 			glfwSetErrorCallback([](int error, const char *description)
 			{
-				//V_CORE_ERROR("GLFW error ({0}): {1}", error, description);
+				V_CORE_ERROR("GLFW error ({0}): {1}", error, description);
 			});
 
 			GLFWInitialized = true;
 		}
 
+
+		// initialize Vulkan
 		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 		this->window = glfwCreateWindow(this->data.width, this->data.height, this->data.title.c_str(), nullptr, nullptr);
 
-		glfwSetWindowUserPointer(this->window, &this->data);
-		//glfwSetFramebufferSizeCallback(this->window, this->framebufferResizeCallback);
+		this->context = new VulkanContext(this);
+		this->context->init();
 
 		
 		// Set GLFW callbacks 
+		glfwSetWindowUserPointer(this->window, &this->data);
+
+		glfwSetFramebufferSizeCallback(this->window, [](GLFWwindow *window, int width, int height)
+		{
+			auto app = reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
+			app->framebufferResized = true;
+		});
+
 		glfwSetWindowSizeCallback(this->window, [](GLFWwindow *window, int width, int height)
 		{
 			WindowData *data = reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
@@ -138,10 +154,14 @@ namespace Viper
 			MouseMovedEvent e((float_t)xPos, (float_t)yPos);
 			data->eventCallback(e);
 		});
+
 	}
 
 	void WindowsWindow::shutdown()
 	{
 		glfwDestroyWindow(this->window);
+		delete this->context;
+		glfwTerminate();
 	}
+
 }

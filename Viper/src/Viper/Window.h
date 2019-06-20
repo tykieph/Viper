@@ -23,16 +23,19 @@ namespace Viper
 	public:
 		using eventCallbackFunc = std::function<void(Event&)>;
 
-		virtual ~Window() {}
+		virtual ~Window() { }
 
 		virtual void onUpdate() = 0;
 
 		virtual uint16_t getWidth() const = 0;
 		virtual uint16_t getHeight() const = 0;
+		virtual bool getFramebufferResizeState() const = 0;
 
 		virtual void setEventCallback(const eventCallbackFunc &callback) = 0;
+		virtual void setFramebufferResizeState(bool framebufferResized) = 0;
 
 		virtual void *getNativeWindow() const = 0;
+		virtual void *getContextHandle() const = 0;
 
 		// this function has to be created per platform
 		static Window *create(const WindowProperties &properties = WindowProperties());

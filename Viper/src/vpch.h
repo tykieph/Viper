@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <set>
+#include <optional>
 
 #include "Viper/Log.h"
 

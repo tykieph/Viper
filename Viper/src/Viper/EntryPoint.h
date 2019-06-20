@@ -14,6 +14,7 @@
 		Viper::Application *app = Viper::createApplication(); 
 		app->run();
 		delete app;
+
 	}
 
 #else

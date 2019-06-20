@@ -4,9 +4,13 @@
 #include "Viper/Window.h"
 #include "Viper/Input.h"
 #include "Viper/LayerStack.h"
+#include "Viper/KeyCodes.h"
 
 #include "Viper/Events/Event.h"
 #include "Viper/Events/ApplicationEvent.h"
+
+// testing
+#include "Viper/Events/MouseEvent.h"
 
 namespace Viper
 {
@@ -29,6 +33,9 @@ namespace Viper
 
 	private:
 		bool onWindowClose(WindowCloseEvent &e);
+
+		// testing
+		bool onMouseButtonPressed(MouseButtonPressedEvent &e);
 
 	private:
 		std::unique_ptr<Window> window;
