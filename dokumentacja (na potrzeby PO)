@@ -1,0 +1,9 @@
+Viper to prosty silnik do tworzenia gier(oczywiście obecnie nie jest on skończony), który docelowo ma być cross-platform - tak własnie starałem się go projektować. Obecnie nie posiada on żadnego interfejsu, dzięki któremu użytkownik mógłby w prosty sposób stworzyć grę (da się to zrobić, lecz wymaga to pisanie bezpośrednio w kodzie silnika, czego raczej nie chcemy). 
+
+Viper na razie wspiera tylko Vulkan API, niestety nie udało mi się jeszcze stworzyć jakiejs sensownej abstrakcji renderera, która umożliwi łatwe przełączanie pomiędzy innymi API.
+
+W moim projekcie korzystam z:
+  - narzędzia do tworzenia rozwiązania projektu(korzystam z Visual Studio): https://github.com/premake/premake-core,
+  - narzędzia do tworzenia okien oraz przechwytywania wejścia/wyjścia: https://github.com/glfw/glfw,
+  - matematyczne operacje(macierze, wektory): https://github.com/g-truc/glm,
+  - bibliotekę do wyświetlania komunikatów: https://github.com/gabime/spdlog.
